@@ -9,6 +9,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="responsible_id"/>
                         </group>
                            <notebook>
                             <page string="Description">
@@ -17,11 +18,13 @@
                             <page string="About">
                                 This is an example of notebooks
                             </page>
+                            
                         </notebook>
                     </sheet>
                 </form>
             </field>
         </record>
+
         <record model="ir.ui.view" id="course_search_view">
             <field name="name">course.search</field>
             <field name="model">openacademy.course</field>
@@ -32,4 +35,18 @@
                 </search>
             </field>
         </record>
+
+         <!-- override the automatically generated list view for courses -->
+        <record model="ir.ui.view" id="course_tree_view">
+            <field name="name">course.tree</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="name"/>
+                    <field name="responsible_id"/>
+                </tree>
+            </field>
+        </record>
+
+         
 </odoo>
